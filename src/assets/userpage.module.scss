@@ -1,0 +1,120 @@
+$users-list-bg-color: hsla(30, 25%, 91%, 1);
+$users-list__post-bg-color: hsla(74, 73%, 51%, 0.200);
+$users-list__albums-button-hover: hsla(211, 12%, 48%, 0.200);
+$users-list__albums-button-active: hsla(211, 12%, 48%, 1);
+
+.user-page {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    background-color: $users-list-bg-color;
+    //padding: 50px 0px 25px 0px;
+}
+
+.user-nav {
+    background-color: lightblue;
+    &__home-button {
+        font-size: 18px;
+        background-color: white;
+        border: none;
+        border-bottom: 2px solid grey;
+        border-radius: 0px;
+        padding: 10px;
+        width: 150px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+        margin-right: 10px;
+        &:hover {
+            background-color: $users-list__albums-button-hover;
+        }
+        &:active {
+            background-color: $users-list__albums-button-active;
+        }
+    }
+    &__posts-button {
+        font-size: 18px;
+        background-color: white;
+        border: none;
+        border-bottom: 2px solid grey;
+        border-radius: 0px;
+        padding: 10px;
+        width: 150px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+        margin-right: 10px;
+        &:hover {
+            background-color: $users-list__albums-button-hover;
+        }
+        &:active {
+            background-color: $users-list__albums-button-active;
+        }
+    }
+    &__albums-button {
+        font-size: 18px;
+        background-color: white;
+        border: none;
+        border-bottom: 2px solid grey;
+        border-radius: 0px;
+        padding: 10px;
+        width: 150px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+        &:hover {
+            background-color: $users-list__albums-button-hover;
+        }
+        &:active {
+            background-color: $users-list__albums-button-active;
+        }
+    }
+    &__split {
+        margin: 0px;
+    }
+}
+
+.display-content {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.user-posts {
+    &__placeholder {
+        background-color: $users-list__post-bg-color;
+        border: 3px solid green;
+        border-radius: 3px;
+        margin: auto auto 25px auto;
+        width: 400px;
+        box-shadow: 1px 1px 2px gray;
+    } 
+    
+    &__post {
+        background-color: $users-list__post-bg-color;
+        border: 3px solid green;
+        border-radius: 3px;
+        margin: auto auto 25px auto;
+        width: 400px;
+        box-shadow: 1px 1px 2px gray;
+    } 
+}
+
+.user-albums {
+    &__placeholder {
+        background-color: $users-list__post-bg-color;
+        border: 3px solid green;
+        border-radius: 3px;
+        margin: auto auto 25px auto;
+        width: 400px;
+        box-shadow: 1px 1px 2px gray;
+    } 
+
+    &__album {
+        background-color: $users-list__post-bg-color;
+        border: 3px solid green;
+        border-radius: 3px;
+        margin: auto auto 25px auto;
+        width: 400px;
+        box-shadow: 1px 1px 2px gray;
+    } 
+}
