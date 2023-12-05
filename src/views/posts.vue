@@ -1,24 +1,12 @@
 <template>
     <div class="user-posts">
-        <div class="user-posts__placeholder" v-if="posts.length == 0">
-            No posts yet!
-        </div>
-        <div class="user-posts__post" v-for="post, id in posts">
+        <div class="user-posts__post" v-for="post in posts" :key="posts.id">
             <div class="user-posts__title">
-                <span class="user-posts__title-header">
-                    title: 
-                </span>
-                <span class="user-posts__title-body">
-                    {{ post.title }}
-                </span>
+                {{ post.title }}
             </div>
+            <hr class="user-posts__sep">
             <div class="user-posts__text">
-                <span class="user-posts__text-header">
-                    text:
-                </span>
-                <span class="user-posts__text-body">
-                    {{ post.body }}
-                </span>
+                {{ post.body }}
             </div>
         </div>
     </div>

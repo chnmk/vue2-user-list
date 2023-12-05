@@ -1,21 +1,30 @@
 <template>
-  <div class="users-list">
-    <div class="users-list__post" v-for="user, id in users">
-      <p class="users-list__text">
-        <div class="users-list__text-name">
-          {{ user.name }}
+  <div class="users-wrapper">
+    <h1 class="users-wrapper__page-title">User List</h1>
+    <div class="users-list">
+      <div class="users-list__post" v-for="user in users" :key="users.id">
+        <div class="users-list__text">
+          <p class="users-list__username">
+             {{ user.username }}
+          </p>
+          <p class="users-list__email">
+            {{ user.email }}
+          </p>
+          <p class="users-list__name">
+            {{ user.name }}
+          </p>
         </div>
-      </p>
-      <router-link class="users-list__posts-button" 
-        :to="{ name: 'posts', params: { id: id }}"
-        tag="button">
-          Posts
-      </router-link>
-      <router-link class="users-list__albums-button" 
-        :to="{ name: 'albums', params: { id: id }}"
-        tag="button">
-          Albums
-      </router-link>
+        <router-link class="users-list__posts-button" 
+          :to="{ name: 'posts', params: { id: user.id }}"
+          tag="button">
+            Posts
+        </router-link>
+        <router-link class="users-list__albums-button" 
+          :to="{ name: 'albums', params: { id: user.id }}"
+          tag="button">
+            Albums
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

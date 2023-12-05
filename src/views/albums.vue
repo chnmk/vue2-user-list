@@ -1,43 +1,28 @@
 <template>
     <div class="user-albums">
-        <div class="user-albums__placeholder" v-if="albums.length == 0">
-            No albums yet!
-        </div>
-        <div class="album" v-for="album in albums">
+        <div class="album" v-for="album in albums" :key="album.id">
             <div class="album__title">
-                <span class="album_title-header">
-                    Album Title: 
-                </span>
-                <span class="album__title-body">
-                    {{ album.title }}
-                </span>
+                {{ album.title }}
             </div>
-            <div class="photos-list" v-for="photo in album.photos">
-                <div class="photos-list__inner">
-                    <!--
-                    <div class="photos-list__title">
-                        <span class="photos-list__title-header">
-                            Photo Title: 
-                        </span>
-                        <span class="photos-list__title-body">
-                            {{ photo.title }}
-                        </span>
-                    </div>
-                    -->
-                    <div class="photos-list__scroll">
-                        <img class="photos-list__img" :src=photo.url :alt=album.title>
-                    </div>
-                </div>
-            </div>
+            <carousel class="photos-carousel" :per-page="1" :mouse-drag="false" :paginationActiveColor="lightgreen">
+                <slide class="photos-carousel__slide" v-for="photo in album.photos" :key="album.photos.id">
+                    <img class="photos-carousel__image" :src=photo.url :alt=photo.title>
+                </slide>
+            </carousel>
         </div>
     </div>
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
+import { Carousel, Slide } from 'vue-carousel'
 
 export default {
   name: 'PublicLayout',
+  components: {
+    Carousel,
+    Slide
+  },
   methods: {
       ...mapActions({
       fetch: 'fetchData'
