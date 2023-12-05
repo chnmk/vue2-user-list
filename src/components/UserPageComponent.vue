@@ -1,10 +1,10 @@
 <template>
     <div class="user-page">
         <nav class="user-nav">
-          <div class="user-nav__username">
+          <div class="user-nav__username" v-if="current_user != undefined">
             {{ current_user.username }}
           </div>
-          <div class="user-nav__email">
+          <div class="user-nav__email" v-if="current_user != undefined">
             {{ current_user.email }}
           </div>
           <router-link

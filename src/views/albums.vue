@@ -4,7 +4,7 @@
             <div class="album__title">
                 {{ album.title }}
             </div>
-            <carousel class="photos-carousel" :per-page="1" :mouse-drag="false" :paginationActiveColor="lightgreen">
+            <carousel class="photos-carousel" :per-page="1" :mouse-drag="false" paginationActiveColor=#34495D>
                 <slide class="photos-carousel__slide" v-for="photo in album.photos" :key="album.photos.id">
                     <img class="photos-carousel__image" :src=photo.url :alt=photo.title>
                 </slide>

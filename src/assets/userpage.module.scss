@@ -3,21 +3,24 @@ $users-list__post-bg-color: hsla(74, 73%, 51%, 0.200);
 $users-list__albums-button-hover: hsla(211, 12%, 48%, 0.200);
 $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
 
+
 .user-page {
     font-size: 25px;
     text-align: center;
     width: 100%;
-    background-color: $users-list-bg-color;
+    background-color: #F0F9FA;
     //padding: 50px 0px 25px 0px;
 }
 
 .user-nav {
-    background-color: lightblue;
+    background-color: #a4d5f571;
+    box-shadow: 1px 1px 5px lightgray;
 
     &__username {
         padding-top: 10px;
         font-weight: 700;
         margin-bottom: 5px;
+        color: #34495D;
     }
     &__email {
         color: gray;
@@ -29,9 +32,8 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     &__home-button {
         font-size: 18px;
         background-color: white;
-        border: none;
-        border-bottom: 2px solid grey;
-        color: darkblue;
+        border: 1px solid #33C76E;
+        color: #33C76E;
         border-radius: 25px;
         padding: 10px;
         width: 150px;
@@ -47,10 +49,9 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     }
     &__posts-button {
         font-size: 18px;
-        background-color: white;
+        background-color: #65BDF7;
         border: none;
-        border-bottom: 2px solid grey;
-        color: green;
+        color: white;
         border-radius: 25px;
         padding: 10px;
         width: 150px;
@@ -66,10 +67,9 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     }
     &__albums-button {
         font-size: 18px;
-        background-color: white;
+        background-color: #FEB450;
         border: none;
-        border-bottom: 2px solid grey;
-        color: green;
+        color: white;
         border-radius: 25px;
         padding: 10px;
         width: 150px;
@@ -114,20 +114,21 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     }
     
     &__post {
-        background-color: $users-list__post-bg-color;
+        background-color: #FFFFFF;
         border-radius: 50px;
         margin: auto auto 25px auto;
         width: 350px;
         height: 250px;
         padding: 25px;
         overflow: scroll;
-        box-shadow: 1px 1px 2px gray;
+        box-shadow: 1px 1px 5px lightgray;
     } 
 
     &__title {
         font-weight: 700;
         font-size: 20px;
         text-align: center;
+        color: #34495D;
     }
 
     &__sep {
@@ -138,6 +139,7 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
         margin-top: 25px;
         font-size: 18px;
         text-align: justify;
+        color: #34495D;
     }
 }
 
@@ -161,12 +163,12 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
 }
 
 .album {
-    background-color: $users-list__post-bg-color;
+    background-color: #FFFFFF;
     border-radius: 50px;
     margin: auto auto 25px auto;
     width: 400px;
     height: 480px;
-    box-shadow: 1px 1px 2px gray;
+    box-shadow: 1px 1px 5px lightgray;
 
     &__title {
         font-weight: 700;
@@ -174,6 +176,8 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
         text-align: center;
         padding: 25px;
         width: 350px;
+        color: #34495D;
+        height: 10%;
     }
 } 
 
@@ -183,7 +187,6 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     &__image{
         height: 300px;
         width: 300px;
-        border: 1px solid gray;
     }
 }
 

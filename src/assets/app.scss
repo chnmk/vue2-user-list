@@ -1,8 +1,8 @@
-$app-bg-color: hsla(30, 25%, 91%, 1);
-//$font-stack:
+$del---app-bg-color: hsla(30, 25%, 91%, 1);
+$app-bg-color-new: #F0F9FA;
 
 body {
     margin:0px;
-    background-color: $app-bg-color;
+    background-color: $app-bg-color-new;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
