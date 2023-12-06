@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import userData from './modules/userData'
+import userData from './modules/UserData'
 
 Vue.use(Vuex)
 

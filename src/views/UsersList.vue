@@ -1,8 +1,12 @@
 <template>
   <div class="users-wrapper">
-    <h1 class="users-wrapper__page-title">User List</h1>
+    <!-- Заголовок страницы: -->
+    <h1 class="users-wrapper__page-title">
+      User List
+    </h1>
     <div class="users-list">
       <div class="users-list__post" v-for="user in users" :key="users.id">
+        <!-- Информация о пользователе: -->
         <div class="users-list__text">
           <p class="users-list__username">
              {{ user.username }}
@@ -14,6 +18,7 @@
             {{ user.name }}
           </p>
         </div>
+        <!-- Кнопки, id пользователя передаётся в params (см. router/index.js) -->
         <router-link class="users-list__posts-button" 
           :to="{ name: 'posts', params: { id: user.id }}"
           tag="button">
@@ -30,10 +35,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  name: 'PublicLayout',
+  name: 'UsersList',
+
+  // Methods и mounted нужны на каждой странице, 
+  // чтобы данные сразу загружались при её перезагрузке.
   methods: {
       ...mapActions({
       fetch: 'fetchData'
@@ -42,12 +50,9 @@ export default {
   mounted() {
     this.fetch()
   },
+
+  //Почему не геттер: https://habr.com/ru/articles/440542/
   computed: {
-    ...mapGetters([
-      'getAlbums',
-      'getPostsTitle',
-      'getPostsbody'
-    ]),
     ...mapState({
         users: state => state.userData.users,
     })

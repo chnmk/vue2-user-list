@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import UsersListView from '../views/UsersListView.vue'
-import posts from '../views/posts.vue'
-import albums from '../views/albums.vue'
+import UsersListView from '../views/UsersList.vue'
+import posts from '../views/PostsList.vue'
+import albums from '../views/AlbumsList.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +21,7 @@ const router = new VueRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/UserPageView.vue'),
+      component: () => import('../views/UserPage.vue'),
       children: [
         {
           path: '/users/:id/posts',

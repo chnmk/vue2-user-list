@@ -13,10 +13,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
-  name: 'PublicLayout',
+  name: 'PostsList',
+
+  // Methods и mounted нужны на каждой странице, 
+  // чтобы данные сразу загружались при её перезагрузке.
   methods: {
       ...mapActions({
       fetch: 'fetchData'
@@ -25,13 +28,14 @@ export default {
   mounted() {
     this.fetch()
   },
+  // Более читаемый вариант через mapState вместо mapGetters, 
+  // чтобы не пришлось передавать текущий id в vuex и фильтровать его там:
   data() {
     return {
         currentUser: this.$route.params.id
     }
   },
   computed: {
-    //Более читаемый вариант через mapState вместо mapGetters, чтобы не пришлось передавать аргумент в store:
     ...mapState({
         posts(state) {
             return state.userData.userPosts.filter(x => x.userId == this.currentUser)

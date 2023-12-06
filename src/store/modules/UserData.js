@@ -1,11 +1,12 @@
 export default {
   state: {
-    message: "Hello Vuex!",
     users: [],
     userAlbums: [],
     userPhotos: [],
     userPosts: [],
   },
+
+  // Записываем полученные изменения в state:
   mutations: {
     usersFetch(state, data) {
       state.users = data
@@ -20,9 +21,10 @@ export default {
       state.userPosts = data
     }
   },
-  actions: {
-    async fetchData(context) {
 
+  actions: {
+    fetchData(context) {
+      // Создаем функцию для получения данных "data_type" (users, userAlbums...):
       function fetchFunction(data_type){
         const url = 'https://jsonplaceholder.typicode.com/' + data_type
         const commitString = data_type + 'Fetch'
@@ -31,33 +33,16 @@ export default {
           return response.json()
         })
         .then((data) => {
+          // Вызываем нужный mutate:
           context.commit(commitString, data)
         });
       }
 
+      // Вызываем функцию под все нужные нам данные:
       fetchFunction("users")
       fetchFunction("albums")
       fetchFunction("photos")
       fetchFunction("posts")
     }
-  },
-  getters: {
-    getUserName: state => {
-      // https://jsonplaceholder.typicode.com/users
-      return state.users.map(a => a.name)
-    },
-    getAlbums: state => {
-      // https://jsonplaceholder.typicode.com/albums
-      return state.userAlbums.map(a => a.title)
-    },
-    /*
-    getPhotos: state => {
-       https://jsonplaceholder.typicode.com/photos
-    },
-    getPostsTitle: state => {
-      // https://jsonplaceholder.typicode.com/posts
-      return state.userPosts.map(a => a.title)
-    },
-    */
   }
 }

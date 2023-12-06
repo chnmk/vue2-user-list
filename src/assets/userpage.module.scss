@@ -1,87 +1,83 @@
-$users-list-bg-color: hsla(30, 25%, 91%, 1);
-$users-list__post-bg-color: hsla(74, 73%, 51%, 0.200);
-$users-list__albums-button-hover: hsla(211, 12%, 48%, 0.200);
-$users-list__albums-button-active: hsla(211, 12%, 48%, 1);
+// Стили страницы UserPage.vue и дочерних AlbumsList.vue, PostsList.vue:
+$page-bg-color: #F0F9FA;
+$element-bg-color: #FFFFFF;
 
+$nav-bg-color: #a4d5f571;
+$shadow-color: lightgray;
+
+$main-text: #34495D;
+$extra-text: gray;
+
+$button-hover: hsla(211, 12%, 48%, 0.200);
+$button-active: hsla(211, 12%, 48%, 1);
+
+// Повторяющийся для всех кнопок набор свойств:
+%button_default {
+    font-size: 18px;
+    border-radius: 25px;
+    padding: 10px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &:hover {
+        background-color: $button-hover;
+    }
+    &:active {
+        background-color: $button-active;
+    }
+}
+
+// ======================
+
+// Стили для страницы UserPage.vue (общие для Albums.vue, PostsList.vue):
 
 .user-page {
     font-size: 25px;
     text-align: center;
     width: 100%;
-    background-color: #F0F9FA;
-    //padding: 50px 0px 25px 0px;
+    background-color: $page-bg-color;
 }
 
 .user-nav {
-    background-color: #a4d5f571;
-    box-shadow: 1px 1px 5px lightgray;
+    background-color: $nav-bg-color;
+    box-shadow: 1px 1px 5px $shadow-color;
 
     &__username {
         padding-top: 10px;
         font-weight: 700;
         margin-bottom: 5px;
-        color: #34495D;
+        color: $main-text;
     }
     &__email {
-        color: gray;
+        color: $extra-text;
         font-size: 16px;
         margin-top: 0px;
         margin-bottom: 0px; 
     }
 
     &__home-button {
-        font-size: 18px;
+        @extend %button_default;
         background-color: white;
         border: 1px solid #33C76E;
         color: #33C76E;
-        border-radius: 25px;
-        padding: 10px;
-        width: 150px;
-        margin-top: 10px;
-        margin-bottom: 10px;
         margin-right: 10px;
-        &:hover {
-            background-color: $users-list__albums-button-hover;
-        }
-        &:active {
-            background-color: $users-list__albums-button-active;
-        }
+
     }
     &__posts-button {
-        font-size: 18px;
+        @extend %button_default;
         background-color: #65BDF7;
         border: none;
         color: white;
-        border-radius: 25px;
-        padding: 10px;
-        width: 150px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        &:hover {
-            background-color: $users-list__albums-button-hover;
-        }
-        &:active {
-            background-color: $users-list__albums-button-active;
-        }
+        margin-left: 10px;
     }
     &__albums-button {
-        font-size: 18px;
+        @extend %button_default;
         background-color: #FEB450;
         border: none;
         color: white;
-        border-radius: 25px;
-        padding: 10px;
-        width: 150px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        &:hover {
-            background-color: $users-list__albums-button-hover;
-        }
-        &:active {
-            background-color: $users-list__albums-button-active;
-        }
+        margin-left: 10px;
     }
+
     &__split {
         margin: 0px;
     }
@@ -92,43 +88,51 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     text-align: center;
     width: 100%;
     padding-top: 25px;
+}
 
+// ======================
+
+// Стили для страницы PostsList.vue:
+
+// Скрыть вертикальный скроллбар в user-posts__post в Chrome:
+::-webkit-scrollbar {
+    display: none;
 }
 
 .user-posts {
-    // Либо flex
+    // То же, что и в userslist.module.scss:
     @media screen and (width < 875px) {
         display: grid;
-        grid-template-columns: 430px;
         justify-content: center;
+        grid-template-columns: 430px;
     }
     @media screen and (width >= 875px) {
         display: grid;
-        grid-template-columns: 430px 430px;
         justify-content: center;
+        grid-template-columns: 430px 430px;
     }
     @media screen and (width >= 1300px) {
         display: grid;
-        grid-template-columns: 430px 430px 430px;
         justify-content: center;
+        grid-template-columns: 430px 430px 430px;
     }
     
     &__post {
-        background-color: #FFFFFF;
+        background-color: $element-bg-color;
         border-radius: 50px;
         margin: auto auto 25px auto;
         width: 350px;
         height: 250px;
         padding: 25px;
-        overflow: scroll;
-        box-shadow: 1px 1px 5px lightgray;
+        overflow-y: scroll;
+        box-shadow: 1px 1px 5px $shadow-color;
     } 
 
     &__title {
         font-weight: 700;
         font-size: 20px;
         text-align: center;
-        color: #34495D;
+        color: $main-text;
     }
 
     &__sep {
@@ -139,44 +143,48 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
         margin-top: 25px;
         font-size: 18px;
         text-align: justify;
-        color: #34495D;
+        color: $main-text;
     }
 }
 
+// ======================
+
+// Стили для страницы Albums.vue:
+
 .user-albums {
-    // Либо flex
     @media screen and (width < 875px) {
         display: grid;
-        grid-template-columns: 430px;
         justify-content: center;
+        grid-template-columns: 430px;
     }
     @media screen and (width >= 875px) {
         display: grid;
-        grid-template-columns: 430px 430px;
         justify-content: center;
+        grid-template-columns: 430px 430px;
     }
     @media screen and (width >= 1300px) {
         display: grid;
-        grid-template-columns: 430px 430px 430px;
         justify-content: center;
+        grid-template-columns: 430px 430px 430px;
     }
 }
 
 .album {
-    background-color: #FFFFFF;
+    background-color: $element-bg-color;
     border-radius: 50px;
     margin: auto auto 25px auto;
     width: 400px;
     height: 480px;
-    box-shadow: 1px 1px 5px lightgray;
+    box-shadow: 1px 1px 5px $shadow-color;
 
     &__title {
         font-weight: 700;
+
         font-size: 20px;
         text-align: center;
         padding: 25px;
         width: 350px;
-        color: #34495D;
+        color: $main-text;
         height: 10%;
     }
 } 
@@ -190,6 +198,7 @@ $users-list__albums-button-active: hsla(211, 12%, 48%, 1);
     }
 }
 
+// К сожалению в API vue-carousel марджины не регулируются:
 .VueCarousel-dot-container {
     margin-top: 0px!important;
 }

@@ -1,8 +1,9 @@
-$del---app-bg-color: hsla(30, 25%, 91%, 1);
-$app-bg-color-new: #F0F9FA;
+//Стили всего приложения
+$app-bg-color: #F0F9FA;
 
 body {
-    margin:0px;
-    background-color: $app-bg-color-new;
+    background-color: $app-bg-color;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    //Убирает марджин по краям приложения:
+    margin: 0px;
 }
