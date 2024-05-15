@@ -20,8 +20,10 @@ $button-active: hsla(211, 12%, 48%, 1);
     width: 100px;
     margin-bottom: 20px;
     box-shadow: 1px 1px 2px $shadow-color;
+    transition: .2s;
     &:hover {
         background-color: $button-hover;
+        cursor: pointer;
     }
     &:active {
         background-color: $button-active;
